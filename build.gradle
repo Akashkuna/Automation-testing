@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17) // or 21 if your JDK is 21
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Selenium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.21.0'
+
+    // WebDriverManager
+    implementation 'io.github.bonigarcia:webdrivermanager:5.9.2'
+
+    // TestNG
+    testImplementation 'org.testng:testng:7.10.2'
+}
+
+test {
+    useTestNG()
+    testLogging {
+        events "passed", "failed", "skipped"
+    }
+}
